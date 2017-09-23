@@ -1,5 +1,6 @@
 # chatbot
-A chatbot with node, mongodb and mongoose. (construindo)
+
+A chatbot with node, mongodb and mongoose. (building)
 
 Node version: 6.11.0
 
@@ -7,20 +8,20 @@ Mongodb version: 2.2.31
 
 Mongoose version: 4.11.12
 
-Itens feitos :
+Done :
 
-conexão com o banco através da ORM mongoose,
+Conection with database using ORM mongoose,
 
-criando schema para relacionar com a tabela,
+Created schema for table,
 
-inserindo dados na tabela,
+Insert data on tabela,
 
-procurando dados na tabela.
+Find data on table,
 
-Itens para concluir:
+To done:
 
-Página para interagir com o bot,
+Page to use bot,
 
-Aperfeiçoar capacidade de inteligencia do bot,
+Improve inteligence's bot,
 
-Melhorar script e separar em modulos corretamente.
+Improve script and create modules.
