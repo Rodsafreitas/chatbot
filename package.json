@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Rodsafreitas/chatbot#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.12"
   }

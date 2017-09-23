@@ -1,18 +1,18 @@
-var Mongoose = require('Mongoose');
-var fraseSchema = require('./model/fraseSchema.js')();
-var link = 'mongodb://localhost:27017/chat';
+ //Inicialização dos modulos a serem utilizados
+ var fraseSchema = require('./model/fraseSchema.js')();
+ var fraseDAO = require('./DAO/FraseDAO.js');
+ var db = require('./config/db.js')();
+ var app = require('./config/config.js').express();
+ //var app = require('express');
+ var Mongoose = require('Mongoose'); 
 
-Mongoose.connect(link);
-
-var db = Mongoose.connection;
-
-db.once('open', function() {
+ db.once('open', function() {
 
  console.log('Conectado ao banco');  
  
  //Cria variavel com o schema da tabela.
-
- var Talk = Mongoose.model('talk',fraseSchema);
+  
+  var Talk = Mongoose.model('talk',fraseSchema);
   
   //instanciando a variavel para cadastrar no banco 
   var fala = new Talk({
@@ -20,22 +20,13 @@ db.once('open', function() {
      retorno: 'Olá, seja bem vindo!'
   });
 
-  // Cadastrando nova fala
-  fala.save(function(err, thor) {
-      if (err) return console.error(err);
-      console.log('Salvo: ')
-      console.dir(thor);
-    });
-
-//Procura os dados e retorna a frase
-  Talk.find(function (err, dados) {
-  if (err) return console.error(err);
-  console.log('Find your data');
-  console.log(dados[0]["retorno"]);
-});
-
-Talk.find({ name: /^Olá/ });
-
-
+  //Passando parametros para a classe DAO para salvar os dados.
+  fraseDAO.save(fala);
   
+  //Procura os dados na classe DAO e retorna os valores
+  fraseDAO.find(Talk,{ name: /^Olá/ });  
 });
+
+ app.get('/',function(req,res){
+  //res.send('ok');
+ })
