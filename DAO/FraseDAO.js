@@ -1,20 +1,35 @@
-module.exports.save = function(fala){
+dados = "";
 
-	fala.save(function(err,data){
+module.exports.save = function(Talk){
+
+	Talk.save(function(err,data){
 		if(err)
-			console.log('Error : ' + err);
+			throw err;
 		else{
 			console.log('Dados salvos');
 			console.dir(data);
 		}
 	});
 }
-module.exports.find = function(Talk,frase){
 
-	 Talk.find(function (err, dados) {
-	  if (err) return console.error(err);
-	  console.log('Find your data');
-	  console.log(dados[0]["retorno"]);
+
+
+module.exports.find = function(Talk,frase){ 
+
+	return new Promise((resolve,reject) => {
+		Talk.find(frase, function(err,data){
+			if(err)
+				throw err;
+			else{
+				if(data != ""){
+				console.log(data[0]['retorno']);
+				resolve(data[0]['retorno']);
+			}
+		}
+			
+		});
+
 	});
-
 }
+
+

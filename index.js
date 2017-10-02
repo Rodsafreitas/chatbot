@@ -1,32 +1,60 @@
- //Inicialização dos modulos a serem utilizados
+ //Initializing models to be used
  var fraseSchema = require('./model/fraseSchema.js')();
  var fraseDAO = require('./DAO/FraseDAO.js');
  var db = require('./config/db.js')();
- var app = require('./config/config.js').express();
- //var app = require('express');
+ var app = require('./config.js').express();
  var Mongoose = require('Mongoose'); 
+ var cons = require('consolidate');
 
- db.once('open', function() {
+ //Variable to deal with the database
+ var Talk = Mongoose.model('talk', fraseSchema);
 
- console.log('Conectado ao banco');  
- 
- //Cria variavel com o schema da tabela.
-  
-  var Talk = Mongoose.model('talk',fraseSchema);
-  
-  //instanciando a variavel para cadastrar no banco 
-  var fala = new Talk({
-     frase: 'Olá',
-     retorno: 'Olá, seja bem vindo!'
-  });
+ db.once('openUri', function() {
 
-  //Passando parametros para a classe DAO para salvar os dados.
-  fraseDAO.save(fala);
+ console.log('Connect successfully');  
   
-  //Procura os dados na classe DAO e retorna os valores
-  fraseDAO.find(Talk,{ name: /^Olá/ });  
 });
 
- app.get('/',function(req,res){
-  //res.send('ok');
- })
+//Initializing page default
+app.get('/',function(req,res){
+   res.render('index.html');
+});
+
+//To talk with chatbot
+app.get('/talk', function(req,res){
+
+  var frase = {frase: req.param("msg")};
+
+  //Search the phrase.
+  fraseDAO.find(Talk, frase).then(data => {    
+    res.json(JSON.stringify(data));  
+  })
+  .catch(e => res.json(JSON.stringify('error')));
+
+});
+
+//Teaching a new world
+app.get('/save', function(req,res){      
+
+  var phrase = req.param('send');
+  var phrase_return = req.param('receiver');
+  
+  //Schema
+  var speak = new Talk({
+    frase: phrase,
+    retorno: phrase_return
+  });
+
+  //Save the phrase.
+  try{
+      fraseDAO.save(speak);
+      res.json(JSON.stringify(true));
+  }
+  catch (err){
+      res.json(JSON.stringify(false));
+  }
+  
+});
+
+
+

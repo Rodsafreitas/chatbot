@@ -24,8 +24,12 @@
   },
   "homepage": "https://github.com/Rodsafreitas/chatbot#readme",
   "dependencies": {
+    "async-await": "^0.1.40",
     "body-parser": "^1.18.2",
+    "consolidate": "^0.14.5",
+    "ejs": "^2.5.7",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.11.12"
+    "mongoose": "^4.11.12",
+    "nodemon": "^1.12.1"
   }
 }

@@ -1,12 +1,31 @@
 # chatbot
 
-A chatbot with node, mongodb and mongoose. (building)
+A chatbot with node, mongodb and mongoose and a few tools.(building)
 
-Node version: 6.11.0
+The connections with the database it's done using the mongoose's help.
+It uses a ejs engine to renderer the page bot and consume the API.
 
-Mongodb version: 2.2.31
+Versions:
 
-Mongoose version: 4.11.12
+Node : 6.11.0
+
+Mongodb : 2.2.31
+
+Mongoose : 4.11.12
+
+Body-parser : 1.18.2
+
+consolidate : 0.14.5
+
+ejs : 2.5.7
+
+nodemon : 1.12.1
+
+
+Install dependences:
+
+npm install
+
 
 Done :
 
@@ -18,10 +37,10 @@ Insert data on tabela,
 
 Find data on table,
 
-To done:
-
 Page to use bot,
 
-Improve inteligence's bot,
+Create modules
 
-Improve script and create modules.
+To done:
+
+Improve inteligence's bot

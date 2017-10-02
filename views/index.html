@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+   	 <meta name="keywords" content="chatbot, artificial inteligence, node, mongodb">
+   	 <meta name="description" content="A chatbot build with node, mongodb, and a few tools">
+     <meta name="author" content="Rodrigo Freitas">
+     <meta charset="utf-8"/>
+     <script src="js/request.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <title>Talking to bot</title>
+   </head>
+   <body>
+       <div id="text">Oi, eu sou um chatbot criado pelo Rodrigo, just for fun. Fale comigo!</div>
+       <input type="text" size="180%" id="phrase" onkeydown="if(event.keyCode == 13) talk();" /><br/>
+       <input type="button" value="Enviar" onclick="talk()" />
+       
+   </body>
+</html>
