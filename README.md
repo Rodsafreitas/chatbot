@@ -10,6 +10,7 @@ npm install
 
 
 Done :
+
 <ul>
   <li>Conection with database using ORM mongoose</li>
 
@@ -29,6 +30,6 @@ To done:
 
 <ul>
 
-    <li>Improve inteligence's bot </li>
+  <li>Improve inteligence's bot </li>
 
 </ul>
