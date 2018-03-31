@@ -3,44 +3,32 @@
 A chatbot with node, mongodb and mongoose and a few tools.(building)
 
 The connections with the database it's done using the mongoose's help.
-It uses a ejs engine to renderer the page bot and consume the API.
 
-Versions:
-
-Node : 6.11.0
-
-Mongodb : 2.2.31
-
-Mongoose : 4.11.12
-
-Body-parser : 1.18.2
-
-consolidate : 0.14.5
-
-ejs : 2.5.7
-
-nodemon : 1.12.1
-
-
-Install dependences:
+## Install dependences:
 
 npm install
 
 
 Done :
+<ul>
+  <li>Conection with database using ORM mongoose</li>
 
-Conection with database using ORM mongoose,
+  <li>Created schema for table</li>
 
-Created schema for table,
+  <li>Insert data on tabela</li>
 
-Insert data on tabela,
+  <li>Find data on table</li>
 
-Find data on table,
+  <li>Page to use bot</li>
 
-Page to use bot,
-
-Create modules
+  <li>Create modules</li>
+  
+</ul>
 
 To done:
 
-Improve inteligence's bot
+<ul>
+
+    <li>Improve inteligence's bot </li>
+
+</ul>

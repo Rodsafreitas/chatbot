@@ -5,7 +5,11 @@
  var app = require('./config.js').express();
  var Mongoose = require('Mongoose'); 
  var cons = require('consolidate');
-
+ 
+ Promise = require('bluebird');
+ 
+ Mongoose.Promise = Promise;
+ 
  //Variable to deal with the database
  var Talk = Mongoose.model('talk', fraseSchema);
 
